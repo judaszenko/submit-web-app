@@ -1,0 +1,23 @@
+.register{
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+.register button{
+    padding: 1%;
+    /* aspect-ratio: 2/1; */
+    background-color: #573057;
+    color: white;
+    border: 3px solid #332233;
+    border-radius: 10px;
+    margin: 1%;
+}
+.register button:hover{
+    background-color: #583858;
+    cursor: pointer;
+}
+/* #registration_form div{ */
+    /* background-color: red; */
+    /* display: flex; */
+    /* justify-content: space-around; */
+/* } */

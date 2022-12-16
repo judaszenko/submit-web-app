@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\User;
+use App\Entity\UserProfile;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Annotation\Route;
+
+class RegistrationController extends AbstractController
+{
+    #[Route('/register', name: 'app_register')]
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
+    {
+        $user = new User();
+        $form = $this->createFormBuilder($user)
+            ->add('username', TextType::class, ['label' => false, 'attr' => [
+                'placeholder' => "username"
+            ]])
+            ->add('mail', EmailType::class, ['label' => false, 'attr' => [
+                "placeholder" => "email"
+            ]])
+            ->add('password', PasswordType::class, ['label' => false, 'attr' => [
+                "placeholder" => "password"
+            ]])
+            ->add("submit", SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('password')->getData()
+                )
+            );
+            $entityManager->persist($user);
+            $profile = new UserProfile();
+            $profile->setUser($user)->setName($user->getUsername())->setPhoto('/profile_images/default.jpg');
+            $entityManager->persist($profile);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_dashboard');
+        }
+        return $this->render('unlogged/register.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+}

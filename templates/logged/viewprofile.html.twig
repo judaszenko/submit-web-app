@@ -1,0 +1,61 @@
+{% extends "base_logged.html.twig" %}
+{% block title %}profile | submit.{% endblock %}
+{% block stylesheets %}
+            {{ encore_entry_link_tags('profile') }}
+			{{ encore_entry_link_tags('base_logged') }}
+        {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="credentials">
+        <div class="profile_photo">
+            <img src="{{profile.photo}}">
+        </div>
+        <div class="infos">
+            {% block inside %}
+                {{profile.name}}
+                <p>{{ profile.name ~ ' ' ~ profile.surname }}</p>
+                <p>Age: {{ profile.age }}</p>
+                <p>Phone number:{{ profile.phoneNumber }}</p>
+                <hr>
+            {% endblock %}
+        </div>
+    </div>
+        <div class="posts">
+            {% if posts is empty %}
+                no posts to show
+            {% endif %}
+            {% if posts %}
+            {% for post in posts %}
+            <div class="post">
+                <div class="post_img">
+                    <img src="../uploads/{{post.postImg}}" />
+                </div>
+                <div class="post_text">
+                    {{ post.postText }}
+                </div>
+                <div class="post_bar">
+                    <a href="{{path('app_profile', {id: post.creatorId})}}">{{ post.cretorNickname }}</a>
+                    <a href="{{path('app_post', {id: post.id})}}">add comment</a>
+                    {% if post.User.id == user.id %}
+                        <a href="{{ path('app_post_delete', {id:post.id}) }}">delete post</a>
+                    {% endif %}
+                </div>
+                <div class="post_comments">
+                    {% if post.Comments is empty %}
+                        there are no comments to show
+                    {% endif %}
+                    {% for com in post.Comments %}
+                        <div class="comment">
+                            {{com.commentTime|date('Y-m-d H:i:s')}}
+                            <a href="/profile/{{com.owner.id}}">{{com.owner.username}}</a>
+                            {{com.commentText}}
+                        </div>
+                    {% endfor %}
+                
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+</div>
+{% endblock %}

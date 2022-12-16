@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}dashboard | submit.
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('base_logged') }}
+		{% endblock %}
+		{% block javascripts %}
+			{# {{ encore_entry_script_tags('app') }} #}
+		{% endblock %}
+	</head>
+	<body>
+		<div class="dash_nav">
+			<img src="{{ asset('img/logo1.png') }}">
+			<div class="dash_ctrl">
+				{# {{form(search)}}2 #}
+				{# <form class="dash_form" action="{{path('app_search')}}" method="GET">
+					<input type="text" placeholder="search:">
+					<button type="submit">🔍</button>
+					</form> #}
+				<a href="{{path("app_dashboard")}}"> main page</a>
+				<a href="{{path('app_user_profile')}}">profile: {{user.username}}</a>
+				<a href="{{ path("app_logout") }}">logout</a>
+			</div>
+		</div>
+		<div class="dash_container"> {% block body %}{% endblock %}
+			</body>
+		</body>
+	</html>

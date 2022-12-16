@@ -1,0 +1,44 @@
+{% extends 'base_logged.html.twig' %}
+ {% block stylesheets %}
+            {{ encore_entry_link_tags('post') }}
+			{{ encore_entry_link_tags('base_logged') }}
+        {% endblock %}
+
+{% block body %}
+<div class="content"> 
+    <div class="post">
+        <div class="post_img">
+            <img src="/uploads/{{post.postImg}}">
+        </div>
+        <div class="post_text">
+            {{post.postText}}
+        </div>
+        <div class="post_bar">
+            <a href="{{path('app_profile', {id: post.creatorId})}}">{{ post.cretorNickname }}</a>
+            <a>{{ post.postTime|date('Y-m-d H:i:s') }}</a>
+            {% if post.User.id == user.id %}
+                <a href="{{ path('app_post_delete', {id:post.id}) }}">delete post</a>
+            {% endif %}
+        </div>
+        <div class="post_comments">
+        {% if post.Comments is empty %}
+            no comments yet
+        {% endif %}
+        {% if post.Comments %}
+         {% for com in post.Comments %}
+                <div class="comment">
+                    {{com.commentTime|date('Y-m-d H:i:s')}}
+                    {{com.commentText}}
+                    {% if com.owner.id == user.id %}
+                        <a href="{{ path('app_comment_delete', {id: com.id}) }}">delete</a>
+                    {% endif %}
+                    </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form">
+        {{form(form)}}
+        </div>
+    </div> 
+</div>
+{% endblock %}

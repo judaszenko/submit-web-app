@@ -1,0 +1,24 @@
+{% extends "base_unlogged.html.twig" %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('home') }}
+			{{ encore_entry_link_tags('base_unlogged') }}
+        {% endblock %}
+{% block body %}
+	<div class="content">
+		<div class="left">
+			<div class="quote">
+				just submit.
+			</div>
+			<div class="subquote">
+				join to our new, raising social network
+			</div>
+			<div class="quotebuttons">
+				<a href="{{ path('app_login') }}">join community</a>
+			</div>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="footer">
+		Bielsania Software LTD 2022
+	</div>
+</div>{% endblock %}

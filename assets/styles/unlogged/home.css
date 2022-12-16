@@ -1,0 +1,94 @@
+.content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+.left{
+   width: 30%;
+   padding: 1%;
+}
+.right{
+    width: 65%; 
+    min-height: 36vw;
+    background: url("https://coolbackgrounds.io/images/background-wallpapers-ca3501bd.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
+    margin: auto;
+    margin: 5%;
+
+}
+.quote{
+    margin: auto;
+    padding-left: 2%;
+    margin-top: 1em;
+    color: white;
+    font-size: 5rem;
+}
+.subquote{
+    margin: auto;
+    padding-left: 2%;
+    margin-top: 5%;
+    color: white;
+    font-size: 1.5rem;
+}
+.quotebuttons{
+    padding: 1%;
+    padding-top: 10%;
+    display: flex;
+}
+.quotebuttons a{
+    font-size: 1.5rem;
+    color: white;
+    padding: 3%;
+    padding-inline: 2%;
+    /* margin: 0.5%; */
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: 200ms;
+}
+.quotebuttons a:hover{
+    background-color: #664466;
+}
+.footer{
+    border-top: 1px solid white;
+    padding: 0.5em;
+    /* width: 100%; */
+    color: white;
+    /* background-color: #553355; */
+    text-align: center;
+    position:static;
+    bottom: 0;
+    left: 1em;
+    right: 1em;
+    /* margin-inline: auto; */
+}
+@media(max-width: 1000px){
+.content{
+    flex-direction: column;
+    font-size: 1.7em;
+}
+.left, .right{
+    width: 100%;
+    margin: auto;
+}
+.right{
+    aspect-ratio: 4/3;
+    /* min-height: 50vh; */
+}
+.quote{
+    font-size: 4em;
+}
+.subquote{
+    font-size: 1.7em;
+}
+.quotebuttons a{
+    font-size: 2em;
+}
+.footer{
+    font-size: 2em;
+}
+}

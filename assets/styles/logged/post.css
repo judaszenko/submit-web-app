@@ -1,0 +1,131 @@
+.post{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* grid-template-rows: 2fr 1fr; */
+    /* min-height: 80vh; */
+    background-color: #553355;
+    margin: 1em;
+    border-radius: 10px;
+}
+.post_img{
+    padding: 1em;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.post_img img{
+    width: 100%;
+    /* padding: 1em; */
+    border-radius: 10px;
+}
+.post_text{
+margin: 1em;
+padding: 0.5em;
+grid-column-start: 2;
+grid-column-end: 3;
+grid-row-start: 1;
+grid-row-end: 3;
+border-bottom: 1px solid white;
+}
+.post_bar{
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    margin: 1em;
+    border-top: 1px solid #BBB;
+    border-radius: 10px;
+    border-bottom: 1px solid #222;
+}
+.post_bar a{
+    text-decoration: none;
+    color: wheat;
+    border-bottom: 1px solid #553355;
+    transition: 200ms;
+    margin: auto;
+}
+.post_bar a:hover{
+    color: white;
+    border-bottom: 1px solid white;
+}
+.post_comments{
+    margin: 1em;
+    border-left: 1px solid white;
+    grid-row-start: 3;
+    grid-column-start: 2;
+    grid-row-end: 6;
+    padding: 1em;
+}
+.form{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 1em;
+    /* width: 100%; */
+    /* padding: 1em; */
+    border-radius: 10px;
+    /* margin: 0.5em; */
+    text-align: center;
+}
+.form button{
+    padding: 0.5em;
+    color: wheat;
+    border-radius: 10px;
+    background-color: #664466;
+}
+.form textarea{
+    background-color: #553355;
+    border-radius: 10px;
+    color: #CCC;
+    padding: 1em;
+    /* margin: 1em; */
+    width: 85%;
+    resize: vertical;
+    min-height: 8vh;
+    max-height: 15vh;
+}
+
+@media(max-width: 1000px){
+    .post{
+        grid-template-columns: 1fr;
+    }
+    .post_text{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .post_bar{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    .post_comments{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+    .post_img{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .form{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size: 1em;
+    }
+
+    .form div textarea{
+        font-size: 1.5em;
+        min-height: 12em;
+    }
+    .form div button{
+        font-size: 2em;
+    }
+}

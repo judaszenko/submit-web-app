@@ -1,0 +1,21 @@
+{
+  "build/base_unlogged.css": "/build/base_unlogged.css",
+  "build/base_unlogged.js": "/build/base_unlogged.js",
+  "build/home.css": "/build/home.css",
+  "build/home.js": "/build/home.js",
+  "build/login.css": "/build/login.css",
+  "build/login.js": "/build/login.js",
+  "build/register.css": "/build/register.css",
+  "build/register.js": "/build/register.js",
+  "build/base_logged.css": "/build/base_logged.css",
+  "build/base_logged.js": "/build/base_logged.js",
+  "build/post.css": "/build/post.css",
+  "build/post.js": "/build/post.js",
+  "build/dashboard_js.js": "/build/dashboard_js.js",
+  "build/profile.css": "/build/profile.css",
+  "build/profile.js": "/build/profile.js",
+  "build/dashboard.css": "/build/dashboard.css",
+  "build/dashboard.js": "/build/dashboard.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-280a4a.js": "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-280a4a.js"
+}

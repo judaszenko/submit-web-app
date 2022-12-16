@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}submit.{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('base_unlogged') }}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="container">
+		<div class="nav">
+        <a class="logo" href="{{path('app_home')}}">
+			<img src="{{ asset('img/logo1.png') }}">
+        </a>
+			<div class="ctrl">
+				<a href="{{ path('app_home') }}">support</a>
+				<a href="{{ path('app_home') }}">about</a>
+				<a href="{{ path('app_login') }}">login</a>
+			</div>
+		</div>
+        {% block body %}{% endblock %}
+    </body>
+</html>

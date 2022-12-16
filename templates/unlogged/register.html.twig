@@ -1,0 +1,20 @@
+{% extends 'base_unlogged.html.twig' %}
+
+{% block title %}Register{% endblock %}
+ {% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+			{{ encore_entry_link_tags('base_unlogged') }}
+        {% endblock %}
+{% block body %}
+<div class="login">
+    Register
+
+    {{ form(form)}}
+    </div>
+<div class="register">
+<a href="{{path('app_login')}}">
+<button>already have an account?</button>
+</a>
+</div>
+
+{% endblock %}

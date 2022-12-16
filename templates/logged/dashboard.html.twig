@@ -1,0 +1,61 @@
+{% extends 'base_logged.html.twig' %}
+
+{% block title %}dashboard | submit.{% endblock %}
+ {% block stylesheets %}
+            {{ encore_entry_link_tags('dashboard') }}
+			{{ encore_entry_link_tags('base_logged') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('dashboard') }}
+        {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="content">
+    {% for post in posts %}
+        <div class="newpost">
+            <div class="newpost_img">
+                <img src="uploads/{{post.postImg}}" />
+            </div>
+            <div class="newpost_text">
+                {{ post.postText }}
+            </div>
+            <div class="newpost_toolbar">
+                <a href="{{path('app_profile', {id: post.creatorId})}}">{{ post.cretorNickname }}</a>
+                <a href="{{path('app_post', {id: post.id})}}">add comment</a>
+                <a>{{ post.postTime|date('Y-m-d H:i:s') }}</a>
+            </div>
+            <div class="newpost_comments">
+                {% if post.Comments is empty %}
+                    no comments yet
+                {% endif %}
+                {% for com in post.Comments %}
+                <div class="comment">
+                    | {{com.commentTime|date('Y-m-d H:i:s')}}
+                    <a href="/profile/{{com.owner.id}}">{{com.owner.username}}</a> | 
+                    {{com.commentText}}
+                    </div>
+                {% endfor %}
+            
+            </div>
+        </div>
+    {% endfor %}
+        <div class="content_bottom">
+            You hit the bottom, refresh for new posts
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="post_form">
+        <h2>Create new post</h2>
+            {{form_start(submit)}}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            {{form_end(submit)}}
+        </div>
+
+    {# optional, could contain some sort of settings/buttons #}
+    </div>
+
+</div>
+{% endblock %}
+{# to do create structure of database, learn how to make relations and create posts database, later optimisie it to show only part of content from database #}
+{# to do profile editor + add various columnd to store surname, adress etc #}
+{# think about concept of overall website, why should it be better than anything available yet? #}

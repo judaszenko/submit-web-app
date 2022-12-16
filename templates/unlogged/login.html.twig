@@ -1,0 +1,25 @@
+{% extends "base_unlogged.html.twig" %}
+{% block title %}login | submit.{% endblock %}
+ {% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+			{{ encore_entry_link_tags('base_unlogged') }}
+        {% endblock %}
+{% block body %}
+	<div class="login">
+		Log in
+		<form action="{{path('app_login')}}" method="POST">
+			<input type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
+			<input type="password" id="password" name="_password" placeholder="password"/>
+			<button type="submit">login</button>
+		</form>
+		{% if error %}
+			{{ error.messageKey }}
+		{% endif %}
+	</div>
+	<div class="register">
+	<a href="{{path('app_register')}}">
+		<button>new?</button>
+		</a>
+	</div>
+
+{% endblock %}
