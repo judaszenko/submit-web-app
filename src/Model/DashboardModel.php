@@ -12,6 +12,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use DateTime;
 use Doctrine\DBAL\Exception;
 use Doctrine\Persistence\ObjectManager;
+use PhpParser\Node\Expr\Throw_;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -77,29 +78,51 @@ class DashboardModel
 
     public function createProfile(UserInterface $user)
     {
-        $this->connection->beginTransaction();
-        try{
+        // $this->connection->beginTransaction();
+        // try{
             $profile = new UserProfile();
             $profile->setUser($user)->setName($user->getUsername())->setPhoto('/profile_images/default.jpg');
             $this->man->persist($profile);
             $this->man->flush();
             return $profile;
-        }catch(Throwable $e){
-            $this->connection->rollBack();
-            throw new Exception("An error occured creating User Profile");
-        }
+        // }catch(Throwable $e){
+        //     $this->connection->rollBack();
+        //     throw new Exception("An error occured creating User Profile");
+        // }
         
     }
 
     public function insertUser(FormInterface $form)
     {
+        // $u = new ManagerRegistry();
+        // dd(($this->man->getRepository(User::class))->findAll());
+        // $conn = \mysqli_connect(
+        //     '192.168.1.36',
+        //     'judasz',
+        //     'judasz',
+        //     'submit'
+        // );
+        // dd($conn);
+        // dd(($this->man->getConnection())->isConnected());
+        // phpinfo();
+        // die();
+        // $u = new \PDO("mysql:dbname=submit;host=192.168.1.36", "judasz", "judasz", );
+        // $u = new PDO();
+        // dd(PDO::);
+        // dd($u->query("SELECT * FROM user")->fetchAll());
+
         $user = new User();
         $user->setMail($form->get("mail")->getData())
             ->setPassword($this->userPasswordHasher->hashPassword($user, $form->get('plainPassword')->getData()))
             ->setUsername($form->get("username")->getData())
             ->setUserProfile($this->createProfile($user));
-        $this->man->persist($user);
-        $this->man->flush();
+        try{
+            $this->man->persist($user);
+            $this->man->flush();
+        }catch(Throwable $e){
+            Throw new Exception($e->getMessage());
+        }
+        
         return $user;
     }
 
@@ -118,9 +141,10 @@ class DashboardModel
                 $safeFileName = $this->slugger->slug($originalFileName);
                 $newFilename = $safeFileName . '-' . uniqid() . '.' . $file->guessExtension();
                 try {
-                    $file->move('/sites/submit/public/uploads', $newFilename);
+                    $file->move('/var/www/public/uploads', $newFilename);
                 } catch (Throwable $e) {
-                    dd($e);
+                    // dd($e);T
+                    throw new Exception("Unable to move file");
                 }
             }
             $post->setPostText($form->get("postText")->getData());

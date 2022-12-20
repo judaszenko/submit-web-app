@@ -32,6 +32,7 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request): Response
     {
+        // dd(($this->man->getConnection())->isConnected());
         $form = $this->formCreator->userForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

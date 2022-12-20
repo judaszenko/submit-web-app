@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-EXPOSE 80
+# EXPOSE 8000
 WORKDIR /var/www
 
 RUN apt update

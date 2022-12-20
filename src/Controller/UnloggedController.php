@@ -27,7 +27,7 @@ class UnloggedController extends AbstractController
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->renderForm("unlogged/login.html.twig", [
+        return $this->render("unlogged/login.html.twig", [
             'last_username' => $lastUsername,
             'error' => $error,
             'reason' => ''

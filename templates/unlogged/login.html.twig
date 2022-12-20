@@ -8,9 +8,25 @@
 	<div class="login">
 		Log in
 		<form action="{{path('app_login')}}" method="POST">
-			<input type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
+	{#		<input type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
 			<input type="password" id="password" name="_password" placeholder="password"/>
 			<button type="submit">login</button>
+			<input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+	#}
+	<label for="inputUsername">Username</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+		
+		<button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+
+	<input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
 		</form>
 		{% if error %}
 			{{ error.messageKey }}
