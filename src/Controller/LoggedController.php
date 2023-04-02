@@ -44,11 +44,10 @@ class LoggedController extends AbstractController
             throw new NotFoundHttpException("Profile was not found");
         }
     }
-
     #[Route('/dashboard', name: 'app_dashboard')]
     public function dashboard(Request $request, UserInterface $user): Response
     {
-        if (!($this->getUser())->isVerified()) {
+        if (!$this->getUser()) {
             return $this->redirectToRoute("app_logout");
         }
 
@@ -57,7 +56,8 @@ class LoggedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->model->submitPost($user, $form);
-            return $this->redirectToRoute("app_dashboard");
+            // return $this->renderView()
+            // return $this->redirectToRoute("app_dashboard");
         }
 
         return $this->renderForm('logged/dashboard.html.twig', [
@@ -80,7 +80,7 @@ class LoggedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->model->updateProfile($this->getUser(), $form);
-            return $this->redirectToRoute('app_dashboard');
+            // return $this->redirectToRoute('app_dashboard');
         }
         return $this->renderForm('logged/profile.html.twig', [
             'user' => $this->getUser(),
