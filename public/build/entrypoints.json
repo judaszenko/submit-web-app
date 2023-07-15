@@ -1,83 +1,85 @@
 {
   "entrypoints": {
-    "base_unlogged": {
+    "profile": {
       "js": [
-        "/build/runtime.js",
-        "/build/base_unlogged.js"
+        "/build/runtime.7527e1df.js",
+        "/build/profile.475db84d.js"
       ],
       "css": [
-        "/build/base_unlogged.css"
-      ]
-    },
-    "home": {
-      "js": [
-        "/build/runtime.js",
-        "/build/home.js"
-      ],
-      "css": [
-        "/build/home.css"
-      ]
-    },
-    "login": {
-      "js": [
-        "/build/runtime.js",
-        "/build/login.js"
-      ],
-      "css": [
-        "/build/login.css"
-      ]
-    },
-    "register": {
-      "js": [
-        "/build/runtime.js",
-        "/build/register.js"
-      ],
-      "css": [
-        "/build/register.css"
-      ]
-    },
-    "base_logged": {
-      "js": [
-        "/build/runtime.js",
-        "/build/base_logged.js"
-      ],
-      "css": [
-        "/build/base_logged.css"
+        "/build/profile.133a328c.css"
       ]
     },
     "post": {
       "js": [
-        "/build/runtime.js",
-        "/build/post.js"
+        "/build/runtime.7527e1df.js",
+        "/build/post.a136423d.js"
       ],
       "css": [
-        "/build/post.css"
+        "/build/post.dc187399.css"
       ]
     },
-    "dashboard_js": {
+    "base_unlogged": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-280a4a.js",
-        "/build/dashboard_js.js"
-      ]
-    },
-    "profile": {
-      "js": [
-        "/build/runtime.js",
-        "/build/profile.js"
+        "/build/runtime.7527e1df.js",
+        "/build/base_unlogged.be2c21a4.js"
       ],
       "css": [
-        "/build/profile.css"
+        "/build/base_unlogged.4491570b.css"
+      ]
+    },
+    "home": {
+      "js": [
+        "/build/runtime.7527e1df.js",
+        "/build/home.75bf092f.js"
+      ],
+      "css": [
+        "/build/home.8e5dc464.css"
+      ]
+    },
+    "login": {
+      "js": [
+        "/build/runtime.7527e1df.js",
+        "/build/login.c07bafc1.js"
+      ],
+      "css": [
+        "/build/login.0aad9b81.css"
+      ]
+    },
+    "register": {
+      "js": [
+        "/build/runtime.7527e1df.js",
+        "/build/register.fc9b1912.js"
+      ],
+      "css": [
+        "/build/register.82a3dd0a.css"
+      ]
+    },
+    "base_logged": {
+      "js": [
+        "/build/runtime.7527e1df.js",
+        "/build/base_logged.48c8722c.js"
+      ],
+      "css": [
+        "/build/base_logged.b0343309.css"
+      ]
+    },
+    "about": {
+      "js": [
+        "/build/runtime.7527e1df.js",
+        "/build/about.3d6f2bd8.js"
+      ],
+      "css": [
+        "/build/about.34d471e5.css"
       ]
     },
     "dashboard": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_from_js-node_modules_core-js_modules_es_array_i-280a4a.js",
-        "/build/dashboard.js"
+        "/build/runtime.7527e1df.js",
+        "/build/151.3ef75c9d.js",
+        "/build/dashboard.21887ba2.js"
       ],
       "css": [
-        "/build/dashboard.css"
+        "/build/dashboard.cdd1bceb.css"
       ]
     }
   }

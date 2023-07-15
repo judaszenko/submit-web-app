@@ -55,9 +55,9 @@ class LoggedController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // var_dump(1);
+            // die();
             $this->model->submitPost($user, $form);
-            // return $this->renderView()
-            // return $this->redirectToRoute("app_dashboard");
         }
 
         return $this->renderForm('logged/dashboard.html.twig', [

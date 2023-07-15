@@ -46,7 +46,7 @@
     <div class="sidebar">
         <div class="post_form">
         <h2>Create new post</h2>
-            {{form_start(submit)}}
+            {{form_start(submit, {'attr': {'id': 'postForm'}})}}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             {{form_end(submit)}}
         </div>

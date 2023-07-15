@@ -1,0 +1,21 @@
+{% extends 'base_unlogged.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('about') }}
+    {{ encore_entry_link_tags('base_unlogged') }}
+{% endblock %}
+
+
+{% block body %}
+
+<div class="content">
+<h1>What is Submit?</h1>
+<p>Submit was created as a portfolio project, and it's functionality is oriented on showing my basic knowledge of Symfony framework. Indeed, I realise that various things could be done differently, but to keep this project simple enough, I decided to leave it this way. </p>
+<h1>Can I use this website?</h1>
+<p>As long as it is being hosted on my server, you do. Source code is available on my <a href="https://github.com/yanushevitz/submit-web-app" target="_blank">github</a>, so in case you wanted to host your own copy, go ahead and feel free to use it.</p>
+<h1>Is Submit under development?</h1>
+<p>Everything about this project is available on my <a href="https://github.com/yanushevitz/submit-web-app" target="_blank">Github</a></p>
+
+</div>
+
+{% endblock %}

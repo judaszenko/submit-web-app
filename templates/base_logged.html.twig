@@ -19,12 +19,13 @@
 			<div class="dash_ctrl">
 				{# {{form(search)}}2 #}
 				{# <form class="dash_form" action="{{path('app_search')}}" method="GET">
-					<input type="text" placeholder="search:">
-					<button type="submit">🔍</button>
-					</form> #}
-				<a href="{{path("app_dashboard")}}"> main page</a>
-				<a href="{{path('app_user_profile')}}">profile: {{user.username}}</a>
-				<a href="{{ path("app_logout") }}">logout</a>
+													<input type="text" placeholder="search:">
+													<button type="submit">🔍</button>
+													</form> #}
+					<a href="{{path("app_dashboard")}}"> main page</a>
+				<a href="{{path('app_user_profile')}}">profile:
+					{{user.username}}</a>
+				{#<a href="{{ path("app_logout") }}">logout</a>#}
 			</div>
 		</div>
 		<div class="dash_container"> {% block body %}{% endblock %}

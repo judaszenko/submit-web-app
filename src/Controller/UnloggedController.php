@@ -12,8 +12,6 @@ class UnloggedController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
-        // phpinfo();
-        // die();
         return $this->render("unlogged/home.html.twig");
     }
     
@@ -44,5 +42,13 @@ class UnloggedController extends AbstractController
     public function confirmSuccess(): Response
     {
         return $this->render('unlogged/confirmSuccess.html.twig');
+    }
+
+    #[Route('/about', name: "app_about")]
+    public function about(): Response{
+
+
+
+        return $this->render('unlogged/about.html.twig');
     }
 }

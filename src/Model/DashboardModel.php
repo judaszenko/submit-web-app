@@ -94,23 +94,6 @@ class DashboardModel
 
     public function insertUser(FormInterface $form)
     {
-        // $u = new ManagerRegistry();
-        // dd(($this->man->getRepository(User::class))->findAll());
-        // $conn = \mysqli_connect(
-        //     '192.168.1.36',
-        //     'judasz',
-        //     'judasz',
-        //     'submit'
-        // );
-        // dd($conn);
-        // dd(($this->man->getConnection())->isConnected());
-        // phpinfo();
-        // die();
-        // $u = new \PDO("mysql:dbname=submit;host=192.168.1.36", "judasz", "judasz", );
-        // $u = new PDO();
-        // dd(PDO::);
-        // dd($u->query("SELECT * FROM user")->fetchAll());
-
         $user = new User();
         $user->setMail($form->get("mail")->getData())
             ->setPassword($this->userPasswordHasher->hashPassword($user, $form->get('plainPassword')->getData()))
